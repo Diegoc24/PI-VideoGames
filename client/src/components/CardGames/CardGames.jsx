@@ -1,10 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./Style.css"
+import "./StyleCardGames.css"
 
 const CardGames = ({background_image, name, genres,id}) =>{
    let gen= genres.toString()
-   gen = gen.replace(",", " - ")
+   console.log(gen);
+   gen = gen.replace(/,/g, " - ")
    
     return(
         <div className="card-container">

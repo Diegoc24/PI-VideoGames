@@ -1,14 +1,14 @@
 import React from "react";
-import { alfabOrder, createdFilterGame, filterByRating, getFilterByGenres, getGames, getGenres } from "../actions/actions";
+import { alfabOrder, createdFilterGame, filterByRating, getFilterByGenres, getGames, getGenres } from "../../actions/actions";
 
 import { useDispatch, useSelector} from "react-redux";
 import { useEffect } from "react";
-import Paginado from "./Paginado";
-import SearchBar from "./SearchBar";
-import CardGames from "./CardGames";
+import Paginado from "../Paginado/Paginado";
+import SearchBar from "../SearchBar/SearchBar";
+import CardGames from "../CardGames/CardGames";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import "./StyleHome.css"
 
 const Home = (props) =>{
     

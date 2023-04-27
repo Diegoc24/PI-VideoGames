@@ -1,7 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { clearCreatedPost } from "../actions/actions";
+import { clearCreatedPost } from "../../actions/actions";
+import "./GameCreated.css"
 const GameCreated = () =>{
     const dispatch = useDispatch()
     dispatch(clearCreatedPost())

@@ -2,17 +2,17 @@ import React from "react";
 
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {useNavigate} from "react-router-dom"
+import {NavLink, useNavigate} from "react-router-dom"
 import { useEffect } from "react";
-import { getGenres } from "../actions/actions";
-import  handlerInput  from "../handlersForm/handlerInput";
-import "./Style.css";
+import { getGenres } from "../../actions/actions";
+import  handlerInput  from "../../handlersForm/handlerInput";
+import "../form/StyleForm.css"
 
 
 
 
 
-import { postVideogame } from "../actions/actions";
+import { postVideogame } from "../../actions/actions";
 const Form = () =>{
     const navigate = useNavigate()
     const genres = useSelector((state) => state.genres)
@@ -65,7 +65,10 @@ const Form = () =>{
         else if(form.rating === "") setCondition("Debe seleccionar el rating entre 1 y 5")
         
         else if(form.genres === "") setCondition("Debe seleccionar uno o mas generos")
-        else if(form.release_date.length !== 10) setCondition("Debe seleccionar la fecha correspondiente")
+        
+        else if(form.release_date.toString().length !== 10) {setCondition("Debe seleccionar la fecha correspondiente") 
+        console.log(form.release_date.length);
+        }
         else setCondition("")
         
         
@@ -148,13 +151,15 @@ const Form = () =>{
         })
     }
 
-
+console.log(form);
     return(
         <div className={"containerForm"}>
             <h2>
                 CREA UN VIDEOJUEGO
             </h2>
-
+            <div>
+                <NavLink to={"/home"} className={"navHome"}><img src="https://cdn-icons-png.flaticon.com/512/566/566095.png" alt="back"/></NavLink>
+            </div>
             <div className="containerData">
             <form onChange={(e) =>handlerInput(e, setForm, form, setCondition)}>
             <div>
@@ -175,7 +180,7 @@ const Form = () =>{
             </div>
             <div>
                 <label htmlFor="released">Fecha de lanzamiento: </label>
-                <input type={"date"} defaultValue={form.release_date} name="released_date" id="released"></input>
+                <input type={"date"} defaultValue={form.release_date} name="release_date" id="released"></input>
             </div> 
             <div className="containerSelecPlat">
                 <label htmlFor="platform">Plataforma: </label>
@@ -194,6 +199,7 @@ const Form = () =>{
             <option value={"Nintendo Switch"}>Nintendo Switch</option>
             <option value={"Android"}>Android</option>
             <option value={"iOS"}>iOS</option>
+            <option value={"SteamOS"}>SteamOS</option>
             </select>
             
             </div>
@@ -214,7 +220,7 @@ const Form = () =>{
                 <button type="submit" value={"crear"} onClick={(e)=>handlerSubmit(e)}>Crear Videojuego</button>
             </div>
             </div>
-            <div className="containerRight">
+            <div>
             <div className="condition">
                <div>{ condition}</div> 
             </div>

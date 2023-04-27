@@ -1,4 +1,4 @@
-
+import "./StylePaginado.css"
 
 const Paginado = ({numPage, setCurrentPage}) =>{
     let page = []

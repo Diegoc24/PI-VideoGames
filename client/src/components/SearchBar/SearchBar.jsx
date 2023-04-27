@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getGameByName } from "../actions/actions";
+import { getGameByName } from "../../actions/actions";
+import "./StyleSearchBar.css"
 const SearchBar = () =>{
     const dispatch = useDispatch()
     const [name, setName] = useState("");

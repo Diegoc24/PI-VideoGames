@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
-import { getDetailgame }  from "../actions/actions";
-
+import { getDetailgame }  from "../../actions/actions";
+import "./StyleDetail.css"
 const Detail = ()=>{
    
  
@@ -16,7 +16,23 @@ const Detail = ()=>{
     },[])
 const game = useSelector((state) => state.game)
 
-
+const GetPlat = ()=>{
+    console.log(game);
+    let plata = [];
+        if(game.DataBase === true){
+            game.platforms.map(plat =>{
+                plata.push(plat)
+                })
+        }else{
+            game.platforms.map((plat) =>{
+                plata.push(plat.platform.name)
+            })
+        }
+        plata = plata.toString().replace(/,/g, " - ")
+        return(
+    <div className="plat">{plata}</div>
+    )
+    }
     return(
         
         
@@ -31,14 +47,7 @@ const game = useSelector((state) => state.game)
             <div className="platformDetail">
             <h2>Plataformas: </h2>
             
-            <h3>{
-                    
-                    game.DataBase === true  ? game.platforms.map(plat =>{
-                       return <div key={plat}>- {plat} -</div>
-                       }) : game.platforms.map((plat) =>{
-                           return <div key={plat.platform.name}>- {plat.platform.name} -</div>
-                       })
-                   }</h3>
+            <h3><GetPlat/></h3>
             </div>
             <div className="genresDetail">
             <h3>Generos:  </h3>

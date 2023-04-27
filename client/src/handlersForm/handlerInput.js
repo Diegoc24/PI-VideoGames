@@ -39,7 +39,7 @@ const handlerInput = (e, setForm, form, setCondition) =>{
     }
     if(property === "release_date"){
         
-        if(value.length === 10){
+        if(value.length !== 10){
             setCondition("Debe agregar una fecha")
         }else{
             setCondition("")
