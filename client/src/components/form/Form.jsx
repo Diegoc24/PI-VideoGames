@@ -67,7 +67,7 @@ const Form = () =>{
         else if(form.genres === "") setCondition("Debe seleccionar uno o mas generos")
         
         else if(form.release_date.toString().length !== 10) {setCondition("Debe seleccionar la fecha correspondiente") 
-        console.log(form.release_date.length);
+        
         }
         else setCondition("")
         
@@ -151,7 +151,7 @@ const Form = () =>{
         })
     }
 
-console.log(form);
+
     return(
         <div className={"containerForm"}>
             <h2>
@@ -227,8 +227,7 @@ console.log(form);
             <div className="containerPlat">
                 <h3>Plataformas seleccionadas: </h3>
             {form.platforms.map((plat)=>{
-                return <div key={plat} >{plat} 
-                  <button value={plat} onClick={(e) => handlerDeletePlat(e)}>Eliminar</button></div>
+                return <div key={plat}> {plat}<button value={plat} onClick={(e) => handlerDeletePlat(e)}>Eliminar </button> </div>
             })}
             </div>
             <div className="containerGenre">

@@ -4,7 +4,7 @@ import "./StyleCardGames.css"
 
 const CardGames = ({background_image, name, genres,id}) =>{
    let gen= genres.toString()
-   console.log(gen);
+   
    gen = gen.replace(/,/g, " - ")
    
     return(

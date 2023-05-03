@@ -1,6 +1,12 @@
-import { GET_GAMES, GET_BY_NAME, GET_GENRES, FILTER_GENRES, ALFA_ORDER, FILTER_CREATED, FILTER_RATING, DETAIL_GAME, POST_GAME, CLEAR_POST} from "./actionsTypes"
+import { GET_RELEASED, GET_GAMES, GET_BY_NAME, GET_GENRES, FILTER_GENRES, ALFA_ORDER, FILTER_CREATED, FILTER_RATING, DETAIL_GAME, POST_GAME, CLEAR_POST} from "./actionsTypes"
 import axios from "axios"
-
+export const getReleasedDate = (released)=>{
+    
+        return {
+            type: GET_RELEASED,
+            payload: released
+        }
+}
 export function getGames () {
     return async function (dispatch){
        
